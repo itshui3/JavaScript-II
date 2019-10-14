@@ -78,7 +78,7 @@ function consoleCB(boo) {
   }
 }
 
-console.log(contains('yo-yo', items, consoleCB));
+// console.log(contains('yo-yo', items, consoleCB));
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {

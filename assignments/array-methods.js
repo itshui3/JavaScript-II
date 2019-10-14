@@ -86,9 +86,9 @@ let ticketPriceTotal = 0;
 // let ticketPrices = [];
 // runners.forEach( (runner) => { ticketPrices.push(runner.donation)});
 // ticketPriceTotal = ticketPrices.reduce( (acc, item) => { return acc + item } );
+// console.log(ticketPriceTotal);
 
-
-ticketPriceTotal = runners.reduce( (sum, item) => { console.log(sum + item.donation); return sum + item.donation; }, 0);
+ticketPriceTotal = runners.reduce( (sum, item) => { return sum + item.donation; }, 0);
 
 // console.log(ticketPriceTotal);
 
