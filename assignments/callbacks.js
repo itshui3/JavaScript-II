@@ -85,7 +85,18 @@ function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  
+  return cb(array.filter((item, index, arr) => {
+    return arr.indexOf(item) === index
+  }));
 }
 
+function logArr(array) {
+  console.log(array);
+  return array;
+}
 // so in other words filter() the non-dupes
 // gets passed into cb
+let someKindOfArr = ['cat', 'dog', 1, 5, 'cat'];
+
+removeDuplicates(someKindOfArr, logArr);

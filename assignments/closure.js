@@ -57,9 +57,9 @@ const counterFactory = () => {
 };
 
 
-const anotherCounter = counterFactory();
-let c = 0;
-console.log(anotherCounter.increment(c));
-console.log(anotherCounter.decrement(c));
+// const anotherCounter = counterFactory();
+// let c = 0;
+// console.log(anotherCounter.increment(c));
+// console.log(anotherCounter.decrement(c));
 
 // Challenge 4 doesn't work out, fix later
