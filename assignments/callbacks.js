@@ -86,3 +86,6 @@ function removeDuplicates(array, cb) {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 }
+
+// so in other words filter() the non-dupes
+// gets passed into cb
