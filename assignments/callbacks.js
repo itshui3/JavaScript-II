@@ -1,7 +1,6 @@
 // Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array.  Study both the problem and the solution to figure out the rest of the problems.
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
-
 /* 
 
   // GIVEN THIS PROBLEM:
@@ -38,32 +37,66 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
   console.log(test2); // "this Pencil is worth a million dollars!"
 */
 
-
+// problem 1
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return cb(arr.length);
 }
 
+let numArr = [2, 5, 6, 8, 20, 500, 23];
+
+// problem 2
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return cb(arr[arr.length-a]);
 }
-
+ 
+// problem 3
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x + y);
 }
 
+// problem 4
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x * y);
 }
 
+// problem 5
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  return cb(list.indexOf(item) >= 0);
 }
 
+function consoleCB(boo) {
+  if(boo) {
+    return 'boo';
+  } else {
+    return 'eh?';
+  }
+}
+
+// console.log(contains('yo-yo', items, consoleCB));
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  
+  return cb(array.filter((item, index, arr) => {
+    return arr.indexOf(item) === index
+  }));
 }
+
+function logArr(array) {
+  console.log(array);
+  return array;
+}
+// so in other words filter() the non-dupes
+// gets passed into cb
+let someKindOfArr = ['cat', 'dog', 1, 5, 'cat'];
+
+removeDuplicates(someKindOfArr, logArr);
