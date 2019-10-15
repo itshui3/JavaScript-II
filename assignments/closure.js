@@ -17,24 +17,24 @@ function add1() {
 
 
 // ==== Challenge 2: Implement a "counter maker" function ====
-let count = 9;
-const counterMaker = () => {
-   return function counter() {
-     if(count > 10) {count = 0} 
-     return count++ 
-    }
+
+// const counterMaker = () => {
+//    return function counter() {
+//      if(count > 10) {count = 0} 
+//      return count++ 
+//     }
   // IMPLEMENTATION OF counterMaker:
   // 1- Declare a `count` variable with a value of 0. We will be mutating it, so declare it using `let`!
   // 2- Declare a function `counter`. It should increment and return `count`.
   //      NOTE: This `counter` function, being nested inside `counterMaker`,
   //      "closes over" the `count` variable. It can "see" it in the parent scope!
   // 3- Return the `counter` function.
-};
-const myCounter = counterMaker();
-myCounter();
-myCounter();
-myCounter();
-console.log(count);
+// };
+// const myCounter = counterMaker();
+// myCounter();
+// myCounter();
+// myCounter();
+// console.log(count);
 
 // Example usage: const myCounter = counterMaker();
 // myCounter(); // 1
@@ -45,19 +45,28 @@ console.log(count);
 // will refuse to go over the limit, and start back at 1.
 
 // ==== Challenge 4: Create a counter function with an object that can increment and decrement ====
-const counterFactory = () => {
+
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
 
-  {
-    increment: function inc(num) {return num++};
-    decrement: function dec(num) {return num--};
+let count = 9;
+const counterFactory = () => {
+  return {
+    increment: () => {
+      return count++;
+    },
+    decrement: () => {
+      return count--;
+    }
   }
 };
 
 
-// const anotherCounter = counterFactory();
+const anotherCounter = counterFactory();
+console.log(anotherCounter.increment());
+console.log(anotherCounter.increment());
+
 // let c = 0;
 // console.log(anotherCounter.increment(c));
 // console.log(anotherCounter.decrement(c));
